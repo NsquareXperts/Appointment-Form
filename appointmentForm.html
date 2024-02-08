@@ -1,0 +1,47 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 11-08-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card class="slds-align_absolute-center">
+
+        <h1 style="text-align: center; font-size:16px;"> Appointment Form </h1>
+        
+        <div class="slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none" style="border: 3px solid grey;">
+            <lightning-layout multiple-rows>
+                <lightning-layout-item padding="around-medium" size="6" small-device-size="6" medium-device-size="6">
+                    <!-- <lightning-input label="Contact" type="text"></lightning-input> -->
+                    <c-reusuable-lookup label="Contact" selected-icon-name="standard:contact" object-label="Contact" value={selectedContactId}
+                        object-api-name="Contact" field-api-name="Name" onvalueselected={handleValueSelectedOnContact}
+                        help-text="Please Select the Contact..!" required>
+                    </c-reusuable-lookup>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="6" small-device-size="6" medium-device-size="6">
+                        <lightning-input label="Subject" value={subject} onchange={handleSubjectChange} type="text" required></lightning-input>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="6" small-device-size="6" medium-device-size="6" >
+                    <lightning-input label="Date" type="date" value={date} onchange={handleDateChange} required></lightning-input>
+                     <lightning-input label="Time" type="time" value={time} onchange={handleTimeChange} ></lightning-input> <br /> 
+                     <lightning-button class="slds-float_left" variant="Brand" label="Check Availability" title="Save" onclick={checkAvailability} ></lightning-button>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="6" small-device-size="6" medium-device-size="6">
+                    <lightning-input label="Description" value={description} onchange={handleDescriptionChange} type="textarea" required ></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+        
+
+            <hr style=" text-align: center; border-top: 1px dotted black;" />
+
+            <div class="slds-col slds-col-size_12-of-12 slds-p-horizontal_medium slds-m-bottom_medium slds-p-top_medium">
+                <lightning-button class="slds-align_absolute-center" variant="Brand" label="Book Appointment" title="Save" onclick={handleClick} ></lightning-button>
+            </div> 
+
+        </div> 
+</lightning-card>
+</template>
